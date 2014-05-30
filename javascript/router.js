@@ -2,7 +2,8 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  ], function($, _, Backbone){
+  'views/indexView'
+  ], function($, _, Backbone, IndexView){
     var AppRouter = Backbone.Router.extend({
       routes: {
         '/': 'index',
@@ -13,7 +14,8 @@ define([
     var initialize = function(){
       var app_router = new AppRouter();
       app_router.on('index', function(){
-        console.log(zomg);
+        var indexView = new IndexView();
+        indexView.render();
       });
       app_router.on('defaultAction', function(actions){
         console.log('No route:', actions);
