@@ -6,20 +6,18 @@ define([
   ], function($, _, Backbone, IndexView){
     var AppRouter = Backbone.Router.extend({
       routes: {
-        '/': 'index',
+        '': 'index',
         '*actions': 'defaultAction'
+      },
+      index: function(){
+        console.log("jkljkljkl");
+        var indexView = new IndexView();
+        indexView.render();
       }
     });
 
     var initialize = function(){
       var app_router = new AppRouter();
-      app_router.on('index', function(){
-        var indexView = new IndexView();
-        indexView.render();
-      });
-      app_router.on('defaultAction', function(actions){
-        console.log('No route:', actions);
-      });
       Backbone.history.start();
     };
     return {
