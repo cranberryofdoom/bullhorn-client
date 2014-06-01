@@ -7,7 +7,7 @@ define([
     var SignInView = Backbone.View.extend({
       el: $('#container'),
       events: {
-        'click #btn-sign-in': 'submitForm'
+        'submit #form-sign-in': 'submitForm'
       },
       initialize: function(){
         this.render();
@@ -15,8 +15,8 @@ define([
       render: function(){
         this.$el.html(signInTemplate());
       },
-      submitForm: function(){
-        var credentials = $(this.$el.currentTarget).serializeObject();
+      submitForm: function(ev){
+        var credentials = $(ev.currentTarget).serializeObject();
         $.post('sessions', credentials).done(function(data){
           console.log(data);
         }).fail(function(data){
