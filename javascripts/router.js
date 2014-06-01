@@ -16,7 +16,6 @@ define([
         indexView.render();
       },
       signIn: function(){
-        console.log("herp");
         var signInView = new SignInView();
         signInView.render();
       }
