@@ -10,7 +10,7 @@ define([
         this.render();
       },
       render: function(){
-        $('#container').html(indexTemplate());
+        this.$el.html(indexTemplate());
       }
     });
     return IndexView;
