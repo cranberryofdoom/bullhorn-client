@@ -3,12 +3,14 @@ define([
   'underscore',
   'backbone',
   'views/index',
-  'views/sign_in'
-  ], function($, _, Backbone, IndexView, SignInView){
+  'views/sign_in',
+  'views/sign_up'
+  ], function($, _, Backbone, IndexView, SignInView, SignUpView){
     var AppRouter = Backbone.Router.extend({
       routes: {
         '': 'index',
         'sign_in': 'signIn',
+        'sign_up': 'signUp',
         '*actions': 'defaultAction'
       },
       index: function(){
@@ -18,6 +20,10 @@ define([
       signIn: function(){
         var signInView = new SignInView();
         signInView.render();
+      },
+      signUp: function() {
+        var signUpView = new SignUpView();
+        signUpView.render();
       }
     });
 
