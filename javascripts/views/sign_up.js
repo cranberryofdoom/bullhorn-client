@@ -8,7 +8,7 @@ define([
   'hbs!templates/alert',
   'modules/alerts'
   ], function($, _, Backbone, AppRouter, Index, signUpTemplate, alertTemplate, Alerts){
-    var SignInView = Backbone.View.extend({
+    var SignUpView = Backbone.View.extend({
       el: $('#container'),
       events: {
         'submit #form-sign-up': 'submitForm'
@@ -23,17 +23,22 @@ define([
         var userData = $(ev.currentTarget).serializeObject();
         view = this;
         $.post('users', userData).done(function(data){
-          console.log(data);
           alerts = new Alerts();
           alerts.createFromResponse(data);
-          console.log("SUCCESS!");
+          $.post('sessions', userData).done(function(data){
+            alerts = new Alerts();
+            alerts.createFromResponse(data);
+            Backbone.history.navigate('', {trigger: true});
+          }).fail(function(data){
+            alerts = new Alerts();
+            alerts.createFromResponse(data);
+          });
         }).fail(function(data){
           alerts = new Alerts();
           alerts.createFromResponse(data);
-          console.log("YOU ARE A COMPLETE FAILURE, ALEX!");
         });
         return false;
       }
     });
-    return SignInView;
+    return SignUpView;
   });
