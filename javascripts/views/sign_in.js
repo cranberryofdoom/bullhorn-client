@@ -24,8 +24,8 @@ define([
         view = this;
         $.post('sessions', userData).done(function(data){
           alerts = new Alerts();
-          alerts.createFromResponse(data);
           Backbone.history.navigate('', {trigger: true});
+          alerts.createFromResponse(data);
         }).fail(function(data){
           alerts = new Alerts();
           alerts.createFromResponse(data);
