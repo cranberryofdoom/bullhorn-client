@@ -4,13 +4,15 @@ define([
   'backbone',
   'views/index',
   'views/sign_in',
-  'views/sign_up'
-  ], function($, _, Backbone, IndexView, SignInView, SignUpView){
+  'views/sign_up',
+  'views/reset_password'
+  ], function($, _, Backbone, IndexView, SignInView, SignUpView, ResetPasswordView){
     var AppRouter = Backbone.Router.extend({
       routes: {
         '': 'index',
         'sign_in': 'signIn',
         'sign_up': 'signUp',
+        'reset_password&token=:token': 'resetPassword',
         '*actions': 'defaultAction'
       },
       index: function(){
@@ -24,6 +26,10 @@ define([
       signUp: function() {
         var signUpView = new SignUpView();
         signUpView.render();
+      },
+      resetPassword: function(token) {
+        var resetPasswordView = new ResetPasswordView();
+        resetPasswordView.render(token);
       }
     });
 
