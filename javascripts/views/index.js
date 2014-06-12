@@ -11,6 +11,7 @@ define([
         this.render();
       },
       render: function(){
+        console.log('index rendered!');
         this.$el.html(indexTemplate({currentUser: CurrentUser.toJSON()}));
       }
     });
