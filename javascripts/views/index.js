@@ -11,7 +11,7 @@ define([
         this.render();
       },
       render: function(){
-        this.$el.html(indexTemplate({currentUser: CurrentUser.attributes()}));
+        this.$el.html(indexTemplate({currentUser: CurrentUser.toJSON()}));
       }
     });
     return IndexView;

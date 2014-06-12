@@ -5,11 +5,12 @@ define([
   'hbs!templates/navbar',
   'modules/current_user'
   ], function($, _, Backbone, navbarTemplate, CurrentUser){
-    var NavBarView = Backbone.View.extend({
+    var NavbarView = Backbone.View.extend({
       el: $('#navbar'),
       render: function(){
-        this.$el.html(navbarTemplate({currentUser: CurrentUser.attributes()}));
+        console.log("rendering navbar");
+        this.$el.html(navbarTemplate({currentUser: CurrentUser.toJSON()}));
       }
     });
-    return NavBarView;
+    return NavbarView;
   });
