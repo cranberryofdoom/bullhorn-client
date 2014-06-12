@@ -11,12 +11,7 @@ define([
         this.render();
       },
       render: function(){
-        var currentUser = CurrentUser.get();
-        if (currentUser !== null) {
-          this.$el.html(indexTemplate({currentUser: currentUser.attributes}));
-        } else {
-          this.$el.html(indexTemplate());
-        }
+        this.$el.html(indexTemplate({currentUser: CurrentUser.attributes()}));
       }
     });
     return IndexView;

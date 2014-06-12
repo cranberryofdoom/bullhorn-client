@@ -2,11 +2,12 @@ define([
   'jquery',
   'underscore',
   'backbone',
+  'views/navbar',
   'views/index',
   'views/sign_in',
   'views/sign_up',
   'views/reset_password'
-  ], function($, _, Backbone, IndexView, SignInView, SignUpView, ResetPasswordView){
+  ], function($, _, Backbone, NavBarView, IndexView, SignInView, SignUpView, ResetPasswordView){
     var AppRouter = Backbone.Router.extend({
       routes: {
         '': 'index',
@@ -35,6 +36,9 @@ define([
 
     var initialize = function(){
       new AppRouter();
+      // initialize navbar
+      navBarView = new NavBarView();
+      navBarView.render();
       Backbone.history.start();
     };
     return {

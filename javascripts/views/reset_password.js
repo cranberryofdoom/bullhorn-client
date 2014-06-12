@@ -1,13 +1,10 @@
 define([
   'jquery',
-  'underscore',
   'backbone',
-  'router',
   'hbs!templates/reset_password',
-  'models/user',
-  'modules/alerts',
+  'views/alerts',
   'modules/current_user'
-  ], function($, _, Backbone, AppRouter, resetPasswordTemplate, User, Alerts, CurrentUser){
+  ], function($, Backbone, resetPasswordTemplate, AlertsView, CurrentUser){
     var ResetPasswordView = Backbone.View.extend({
       el: $('#container'),
       events: {
@@ -20,13 +17,12 @@ define([
         var userData = $(ev.currentTarget).serializeObject();
         view = this;
         $.post('reset_password', userData).success(function(data){
-          console.log(data);
           Backbone.history.navigate('', {trigger: true});
-          alerts = new Alerts();
-          alerts.createFromResponse(data);
+          alertsView = new AlertsView();
+          alertsView.renderFromResponse(data);
         }).fail(function(data){
-          alerts = new Alerts();
-          alerts.createFromResponse(data);
+          alertsView = new AlertsView();
+          alertsView.renderFromResponse(data);
         });
         return false;
       }

@@ -8,12 +8,19 @@ define([
 			return currentUser;
 		};
 		var set = function(userData) {
-			if (currentUser == null) {
+			if (currentUser === null) {
 				currentUser = new User(userData);
 			} else {
 				currentUser.set(userData);
 			}
 		};
+		var attributes = function() {
+			if (currentUser == null) {
+				return null;
+			} else {
+				return currentUser.attributes;
+			}
+		}
 		var initialize = function(callback) {
 			$.get("sessions").success(function(data) {
 				currUserData = data.Data.User;
@@ -31,6 +38,7 @@ define([
 		return {
 			get: get,
 			set: set,
+			attributes: attributes,
 			initialize: initialize
 		};
 	});
