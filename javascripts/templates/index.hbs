@@ -1,2 +1,12 @@
 {{> templates/application}}
-textfdowtjirji;hiot
+<h2>Home</h2>
+{{#if currentUser}}
+	You are currently signed in with the following user data:
+	<ul>
+		<li>{{currentUser.id}}</li>
+		<li>{{currentUser.email}}</li>
+		<li>{{#if currentUser.confirmed}}true{{else}}false{{/if}}</li>
+	</ul>
+{{else}}
+	You are not currently signed in.
+{{/if}}

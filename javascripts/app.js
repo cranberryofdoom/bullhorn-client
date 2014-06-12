@@ -3,12 +3,19 @@ define([
 	'underscore',
 	'backbone',
 	'router',
-	], function($, _, Backbone, Router){
+  'modules/current_user'
+	], function($, _, Backbone, Router, CurrentUser){
 		var initialize = function(){
-      // connect to bullhorn-server
+      // use bullhorn-server url and send session data by default
       $.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
-      	options.url = 'http://localhost:9000/' + options.url;
-      	options.xhrFields = {
+        // TODO: eek! get rid of this disgusting hack. ajaxPrefilters should only happen once,
+        // but for some reason it is not loaded yet in modules/current_user so I have
+        // the prefilters being set in both locations. The if statement is to avoid
+        // setting the url prefix twice.
+        if (options.url.indexOf('http://localhost:9000/') === -1) {
+          options.url = 'http://localhost:9000/' + options.url;
+        }
+        options.xhrFields = {
           withCredentials: true
         };
       });
@@ -28,7 +35,9 @@ define([
       	});
       	return o;
       };
-      Router.initialize();
+      CurrentUser.initialize(function() {
+        Router.initialize();
+      });
     };
     return {
     	initialize: initialize

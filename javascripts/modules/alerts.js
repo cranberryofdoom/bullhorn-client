@@ -16,7 +16,6 @@ define([
 			if (data.responseJSON !== undefined) {
 				data = data.responseJSON;
 			}
-			console.log(data)
 			if (data.Messages !== undefined) {
 				this.render('success', data.Messages);
 			} else if (data.Errors !== undefined) {

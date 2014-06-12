@@ -6,8 +6,10 @@ define([
   'views/index',
   'hbs!templates/sign_in',
   'hbs!templates/alert',
-  'modules/alerts'
-  ], function($, _, Backbone, AppRouter, Index, signInTemplate, alertTemplate, Alerts){
+  'models/user',
+  'modules/alerts',
+  'modules/current_user'
+  ], function($, _, Backbone, AppRouter, Index, signInTemplate, alertTemplate, User, Alerts, CurrentUser){
     var SignInView = Backbone.View.extend({
       el: $('#container'),
       events: {
@@ -22,9 +24,16 @@ define([
       submitForm: function(ev){
         var userData = $(ev.currentTarget).serializeObject();
         view = this;
-        $.post('sessions', userData).done(function(data){
-          alerts = new Alerts();
+        $.post('sessions', userData).success(function(data){
+          var currUserData = data.Data.User
+          CurrentUser.set({
+            email: currUserData.Email,
+            confirmed: currUserData.Confirmed,
+            id: currUserData.Id 
+          });
+          console.log(CurrentUser.get());
           Backbone.history.navigate('', {trigger: true});
+          alerts = new Alerts();
           alerts.createFromResponse(data);
         }).fail(function(data){
           alerts = new Alerts();
