@@ -2,6 +2,7 @@ define([
   'jquery',
   'backbone',
   'hbs!templates/sign_up',
+  'hbs!templates/alert',
   'views/alerts'
   ], function($, Backbone, signUpTemplate, alertTemplate, AlertsView){
     var SignUpView = Backbone.View.extend({
