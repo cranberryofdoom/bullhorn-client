@@ -1,12 +1,14 @@
 define([
 	'jquery',
 	'underscore',
+	'bootstrap',
 	'hbs!templates/alert'
-	], function($, _, alertTemplate) {
+	], function($, _, bs, alertTemplate) {
 		var Alerts = function() {};
 		Alerts.prototype.render = function(alertType, msgs) {
 			var html = alertTemplate({'alertType': alertType, 'msgs': msgs});
 			$("#alert-placeholder").html(html);
+			$(".alert").alert();
 		}
 		Alerts.prototype.clear = function() {
 			$("#alert-placeholder").html("");

@@ -14,12 +14,15 @@ require.config({
 			'deps': ['jquery', 'underscore'],
 			'exports': 'Backbone'
 		},
+		'bootstrap': {
+			deps: ['jquery'],
+			exports: "$.fn.popover"
+		}
 	}
 });
 
 require([
-	'jquery',
 	'app'
-	], function($, App){
+	], function(App){
 		App.initialize();
 	});
