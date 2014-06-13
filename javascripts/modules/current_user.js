@@ -24,12 +24,9 @@ define([
 		// this is useful for view templates, where the empty object that would
 		// be returned by toJSON() is considered true-ish.
 		currentUser.toJSON = function() {
-			console.log("toJSON called");
 			if (this.get("email") === undefined) {
-				console.log("invalid motha fucka");
 				return null;
 			} else {
-				console.log("it should be valid, bitch!");
 				return Backbone.Model.prototype.toJSON.call(this)
 			}
 		};

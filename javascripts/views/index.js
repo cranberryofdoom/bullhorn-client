@@ -8,7 +8,6 @@ define([
     var IndexView = Backbone.View.extend({
       el: $('#container'),
       render: function(){
-        console.log('index rendered!');
         this.$el.html(indexTemplate({currentUser: CurrentUser.toJSON()}));
       }
     });
