@@ -18,12 +18,15 @@ define([
       },
       index: function(){
         var indexView = new IndexView();
+        indexView.render();
       },
       signIn: function(){
         var signInView = new SignInView();
+        signInView.render();
       },
       signUp: function() {
         var signUpView = new SignUpView();
+        signUpView.render();
       },
       resetPassword: function(token) {
         var resetPasswordView = new ResetPasswordView();

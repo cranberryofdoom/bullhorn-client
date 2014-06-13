@@ -9,9 +9,6 @@ define([
       events: {
         'submit #form-sign-up': 'submitForm'
       },
-      initialize: function(){
-        this.render();
-      },
       render: function(){
         this.$el.html(signUpTemplate());
       },

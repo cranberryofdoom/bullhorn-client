@@ -10,9 +10,6 @@ define([
       events: {
         'submit #form-sign-in': 'submitForm'
       },
-      initialize: function(){
-        this.render();
-      },
       render: function(){
         this.$el.html(signInTemplate());
       },
