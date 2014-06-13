@@ -7,8 +7,9 @@ define([
   'views/sign_in',
   'views/sign_up',
   'views/forgot_password',
-  'views/reset_password'
-  ], function($, _, Backbone, NavbarView, IndexView, SignInView, SignUpView, ForgotPasswordView, ResetPasswordView){
+  'views/reset_password',
+  'views/confirm_email'
+  ], function($, _, Backbone, NavbarView, IndexView, SignInView, SignUpView, ForgotPasswordView, ResetPasswordView, ConfirmEmailView){
     var AppRouter = Backbone.Router.extend({
       routes: {
         '': 'index',
@@ -16,6 +17,7 @@ define([
         'sign_up': 'signUp',
         'forgot_password': 'forgotPassword',
         'reset_password&token=:token': 'resetPassword',
+        'users/:id/confirm&token=:token': 'confirmEmail',
         '*actions': 'defaultAction'
       },
       index: function(){
@@ -37,6 +39,11 @@ define([
       resetPassword: function(token) {
         var resetPasswordView = new ResetPasswordView();
         resetPasswordView.render(token);
+      },
+      confirmEmail: function(id, token) {
+        console.log({id: id, token: token});
+        var confirmEmailView = new ConfirmEmailView();
+        confirmEmailView.render(id, token);
       }
     });
 
