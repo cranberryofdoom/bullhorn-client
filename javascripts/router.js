@@ -41,7 +41,6 @@ define([
         resetPasswordView.render(token);
       },
       confirmEmail: function(id, token) {
-        console.log({id: id, token: token});
         var confirmEmailView = new ConfirmEmailView();
         confirmEmailView.render(id, token);
       }

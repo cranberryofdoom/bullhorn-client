@@ -15,10 +15,8 @@ define([
         this.confirmEmail(id, token);
       },
       confirmEmail: function(id, token) {
-        console.log({id: id, token: token});
         var data = {token: token};
         $.post('users/'+id+'/confirm', data).success(function(data){
-          console.log(data);
           if (CurrentUser.toJSON() !== null && data.Data !== undefined) {
             // if a user is currently signed in, update the CurrentUser data.
             var currUserData = data.Data.User;

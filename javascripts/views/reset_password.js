@@ -18,7 +18,6 @@ define([
         view = this;
         $.post('reset_password', userData).success(function(data){
           var currUserData = data.Data.User;
-          console.log(currUserData);
           CurrentUser.set({
             email: currUserData.Email,
             confirmed: currUserData.Confirmed,
