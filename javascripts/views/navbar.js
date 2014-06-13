@@ -9,7 +9,7 @@ define([
     var NavbarView = Backbone.View.extend({
       el: $('#navbar'),
       events: {
-        'click #sign-out': 'signOutUser'
+        'click #link-sign-out': 'signOutUser'
       },
       render: function(){
         this.$el.html(navbarTemplate({currentUser: CurrentUser.toJSON()}));
