@@ -31,9 +31,6 @@ define([
           alertsView.renderFromResponse(data);
         });
         return false;
-      },
-      sendResetPassword: function(event) {
-        return false
       }
     });
     return SignInView;
