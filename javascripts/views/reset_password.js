@@ -17,6 +17,13 @@ define([
         var userData = $(ev.currentTarget).serializeObject();
         view = this;
         $.post('reset_password', userData).success(function(data){
+          var currUserData = data.Data.User;
+          console.log(currUserData);
+          CurrentUser.set({
+            email: currUserData.Email,
+            confirmed: currUserData.Confirmed,
+            id: currUserData.Id
+          });
           Backbone.history.navigate('', {trigger: true});
           alertsView = new AlertsView();
           alertsView.renderFromResponse(data);
