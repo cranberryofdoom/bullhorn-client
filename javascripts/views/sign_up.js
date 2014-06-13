@@ -2,8 +2,9 @@ define([
   'jquery',
   'backbone',
   'hbs!templates/sign_up',
-  'views/alerts'
-  ], function($, Backbone, signUpTemplate, AlertsView){
+  'views/alerts',
+  'modules/current_user'
+  ], function($, Backbone, signUpTemplate, AlertsView, CurrentUser){
     var SignUpView = Backbone.View.extend({
       el: $('#container'),
       events: {
