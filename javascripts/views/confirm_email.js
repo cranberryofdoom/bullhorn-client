@@ -15,6 +15,7 @@ define([
         this.confirmEmail(id, token);
       },
       confirmEmail: function(id, token) {
+        var view = this;
         var data = {token: token};
         $.post('users/'+id+'/confirm', data).success(function(data){
           if (CurrentUser.toJSON() !== null && data.Data !== undefined) {
@@ -30,7 +31,7 @@ define([
           alertsView = new AlertsView();
           alertsView.renderFromResponse(data);
         }).fail(function(data){
-          this.$el.html(confirmFailedTemplate());
+          view.$el.html(confirmFailedTemplate());
           alertsView = new AlertsView();
           alertsView.renderFromResponse(data);
         });
