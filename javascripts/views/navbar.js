@@ -31,8 +31,8 @@ define([
           alertsView.renderFromResponse(data);
         }).error(function(data) {
           alertsView.renderFromResponse(data);
-        })
-        return false
+        });
+        return false;
       }
     });
 

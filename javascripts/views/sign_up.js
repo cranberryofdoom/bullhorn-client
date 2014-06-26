@@ -18,11 +18,13 @@ define([
         view = this;
         $.post('users', userData).success(function(data){
           var currUserData = data.Data.User;
-          CurrentUser.set({
-            email: currUserData.Email,
-            confirmed: currUserData.Confirmed,
-            id: currUserData.Id
-          });
+          if (userData.signIn === true){
+            CurrentUser.set({
+              email: currUserData.Email,
+              confirmed: currUserData.Confirmed,
+              id: currUserData.Id
+            });
+          }
           Backbone.history.navigate('', {trigger: true});
           alertsView = new AlertsView();
           alertsView.renderFromResponse(data);
