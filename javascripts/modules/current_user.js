@@ -12,7 +12,8 @@ define([
 				currentUser.set({
 					email: currUserData.Email,
 					confirmed: currUserData.Confirmed,
-					id: currUserData.Id 
+					id: currUserData.Id,
+					list: currUserData.List
 				});
 				callback();
 			}).error(function(data) {
@@ -27,7 +28,7 @@ define([
 			if (this.get("email") === undefined) {
 				return null;
 			} else {
-				return Backbone.Model.prototype.toJSON.call(this)
+				return Backbone.Model.prototype.toJSON.call(this);
 			}
 		};
 		// anytime the current user changes (e.g. during sign in or sign up),

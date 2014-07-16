@@ -1,0 +1,80 @@
+body {
+	margin-top: 50px;
+	background-color: $light-grey;
+	font-family: 'Alegreya Sans', sans-serif;
+}
+
+.wrapper {
+	margin: 0 25%;
+	form {
+		margin-top: 20px;
+	}
+}
+
+.content {
+	padding: 30px 0;
+}
+
+p {
+	font-size: 16px;
+	font-weight: 300;
+}
+
+h1 {
+	font-weight: 900;
+}
+
+h2 {
+	font-weight: 700;
+}
+
+h3 {
+	font-weight: 500;
+}
+
+a {
+	color: $teal;
+	&:hover {
+		text-decoration: none;
+		color: darken($teal, 10%);
+	}
+}
+
+.help-block {
+	font-size: 14px;
+}
+
+.alert {
+	margin-bottom: 0;
+	border-radius: 0;
+}
+
+.form-control {
+	border-radius: 0;
+	box-shadow: none;
+}
+
+.btn {
+	border: 1px solid $teal;
+	border-radius: 0;
+	color: $light-grey;
+	&:hover {
+		border: 1px solid darken($teal, 10%);
+		color: $light-grey;
+	}
+	&:focus {
+		border: 1px solid darken($teal, 10%);
+		border-radius: 0;
+		color: $light-grey;
+	}
+}
+
+.btn-default {
+	background-color: $teal;
+	&:hover {
+		background-color: darken($teal, 10%);
+	}
+	&:focus {
+		background-color: $teal;
+	}
+}

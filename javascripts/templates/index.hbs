@@ -1,11 +1,181 @@
-<h2>Home</h2>
 {{#if currentUser}}
-	You are currently signed in with the following user data:
-	<ul>
-		<li>{{currentUser.id}}</li>
-		<li>{{currentUser.email}}</li>
-		<li>{{#if currentUser.confirmed}}true{{else}}false{{/if}}</li>
-	</ul>
+{{#if currentUser.confirmed}}
 {{else}}
-	You are not currently signed in.
+<div class="alert alert-info">
+	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	<div class="container">
+		<label for="confirmEmail">Email Confirmation</label>
+		<p class="help-block">It seems like you haven't confirmed your email yet.</p>
+		<button type="button" class="btn btn-default">Send another confirmation</button>
+	</div>
+</div>
+{{/if}}
+{{#if currentUser.list}}
+<div class="content">
+	<div class="container">
+		<div class="wrapper">
+			<h1 class="text-center"><a href="">{{currentUser.list.Name}}</a></h1>
+			<div class="message">
+				<div class="message-body">
+					<p>I see you.</p>
+				</div>
+				<div class="message-datetime">
+					Sent just now
+				</div>
+			</div>
+			<div class="message">
+				<div class="message-body">
+					<p>Hi, my name is Bob!</p>
+				</div>
+				<div class="message-datetime">
+					Sent Thursday, July 4th, 2014
+				</div>
+			</div>
+			<div class="message">
+				<div class="message-body">
+					<p>This is a message that I can send to people.</p>
+				</div>
+				<div class="message-datetime">
+					Sent Friday, July 5th, 2014
+				</div>
+			</div>
+		</div> 
+	</div>
+</div>		
+<div class="content send-broadcast">
+	<div class="container">
+		<div class="wrapper">
+			<form role="form" id="form-send-broadcast">
+				<div class="form-group">
+					<div class="input-group">
+						<input name="message" type="text" class="form-control input-lg" id="broadcastMessage">
+						<span class="input-group-btn">
+							<button class="btn btn-default btn-lg" type="button">Send</button>
+						</span>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+{{else}}
+<div class="wrapper">
+	<h1>Create a List</h1>
+	<form role="form" id="form-create-list">
+		<div class="form-group">
+			<label for="name">List Name</label>
+			<input name="name" type="text" class="form-control" id="listName">
+		</div>
+		<button type="submit" class="btn btn-default">Create</button>
+	</form>
+</div>
+{{/if}}
+
+{{!-- Begin Design Alternative 1 --}}
+{{!-- <div class="content">
+	<div class="container">
+		{{#if currentUser.list}}			
+		<div class="wrapper">
+			<h1>Send a Broadcast to <a href="">{{currentUser.list.Name}}</a></h1>
+			<form role="form" id="form-send-broadcast">
+				<div class="form-group">
+					<label for="message">Broadcast Message</label>
+					<textarea name="message" class="form-control" id="broadcastMessage"/>
+				</div>
+				<button type="submit" class="btn btn-default">Send</button>
+			</form>
+		</div>
+		{{else}}
+		<div class="wrapper">
+			<h1>Create a List</h1>
+			<form role="form" id="form-create-list">
+				<div class="form-group">
+					<label for="name">List Name</label>
+					<input name="name" type="text" class="form-control" id="listName">
+				</div>
+				<button type="submit" class="btn btn-default">Create</button>
+			</form>
+		</div>
+		{{/if}}
+	</div>
+</div>
+<div class="content">
+	<div class="container">
+		<div class="wrapper">
+			<h1>Broadcast History</h1>
+			<div class="message">
+				<div class="message-body">
+					<p>I see you.</p>
+				</div>
+				<div class="message-datetime">
+					Sent just now
+				</div>
+			</div>
+			<div class="message">
+				<div class="message-body">
+					<p>Hi, my name is Bob!</p>
+				</div>
+				<div class="message-datetime">
+					Sent Thursday, July 4th, 2014
+				</div>
+			</div>
+			<div class="message">
+				<div class="message-body">
+					<p>This is a message that I can send to people.</p>
+				</div>
+				<div class="message-datetime">
+					Sent Friday, July 5th, 2014
+				</div>
+			</div>
+		</div> 
+	</div>
+</div> --}}
+{{!-- End Design Alternative 1 --}}
+{{else}}
+<div class="hero content">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-2">
+				<img src="images/bullhorn.svg">
+			</div>
+			<div class="col-sm-10 hero-header">
+				<h1>Bullhorn</h1>
+				<p>A communication tool for shelters to reach out to the homeless and keep them in the loop.</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="content">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<h2>How it works<h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<h3>Subscribe</h3>
+					<p>A homeless shelter suscribes their clients to a broadcasting list to enable them to recieve updates about the activities and opportunities going on at the shelter.</p>
+				</div>
+				<div class="col-md-4">
+					<h3>Broadcast</h3>
+					<p>The homeless shelter uses Bullhorn's web service to create a broadcast and deliver it as text or voice messages to their clients.</p>
+				</div>
+				<div class="col-md-4">
+					<h3>Analyze</h3>
+					<p>Bullhorn provides analytics on who has recieved the message as well as which clients find the broadcasting lists most useful.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="content">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12 text-center">
+				<button class="btn btn-default btn-lg">Get Started</button>
+			</div>
+		</div>
+	</div>
+</div>
 {{/if}}

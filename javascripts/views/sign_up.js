@@ -22,7 +22,8 @@ define([
             CurrentUser.set({
               email: currUserData.Email,
               confirmed: currUserData.Confirmed,
-              id: currUserData.Id
+              id: currUserData.Id,
+              list: currUserData.List
             });
           }
           Backbone.history.navigate('', {trigger: true});

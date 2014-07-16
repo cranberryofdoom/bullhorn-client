@@ -1,0 +1,39 @@
+.hero {
+	padding: 50px 0;
+	background-color: $teal;
+	img {
+		height: 125px;
+		width: 125px;
+	}
+}
+
+.hero-header {
+	color: $light-grey;
+	h1 {
+		font-size: 46px;
+		font-weight: 900;
+	}
+}
+
+.message {
+	margin-top: 30px;
+}
+
+.message-body {
+	padding: 20px;
+	background-color: white;
+	border-left: 2px solid $teal;
+}
+
+.message-datetime {
+	margin-top: 10px;
+	font-size: 12px;
+}
+
+.send-broadcast {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: 0 auto;
+}

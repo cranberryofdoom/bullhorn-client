@@ -1,22 +1,28 @@
-<form role="form" id="form-sign-in">
-  <div class="form-group">
-    <label for="email">Email address</label>
-    <input name="email" type="email" class="form-control" id="email">
+<div class="content">
+  <div class="container">
+    <div class="wrapper">
+      <h1>Sign In</h1>
+      <form role="form" id="form-sign-in">
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input name="email" type="email" class="form-control" id="email">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input name="password" type="password" class="form-control" id="password">
+        </div>
+        <div class="checkbox">
+          <label>
+            <input name="rememberMe" type="checkbox" id="rememberMe" checked> Remember me
+          </label>
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <div id="account-links">
+        Forgot password? <a href="#/forgot_password">Request a password reset</a>
+        <br/>
+        Don't have an account? <a href="#/sign_up">Sign up</a>
+      </div>
+    </div>
   </div>
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input name="password" type="password" class="form-control" id="password">
-  </div>
-  <div class="checkbox">
-    <label>
-      <input name="rememberMe" type="checkbox" id="rememberMe" checked> Remember me
-    </label>
-  </div>
-  <button type="submit" class="btn btn-default">Submit</button>
-</form>
-
-<div id="account-links">
-  Forgot password? <a href="#/forgot_password">Request a password reset</a>
-  <br/>
-  Don't have an account? <a href="#/sign_up">Sign up</a>
 </div>

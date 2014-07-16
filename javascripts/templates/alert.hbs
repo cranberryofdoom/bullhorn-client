@@ -1,6 +1,8 @@
 <div class="alert alert-{{alertType}}">
 	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-	{{#each msgs}}
+	<div class="container">
+		{{#each msgs}}
 		<li>{{.}}</li>
-	{{/each}}
+		{{/each}}
+	</div>
 </div>
